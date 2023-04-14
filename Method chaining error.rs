@@ -11,6 +11,8 @@ fn main(){
          //let mut local = clone.lock().unwrap();
          //local.push(45); //changes reflected in mutex inner type
         
+       //The second solution
+        // (*(clone.lock().unwrap())).push(45);
        
         
 }).join().unwrap();
