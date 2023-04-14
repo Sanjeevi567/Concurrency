@@ -8,9 +8,13 @@ fn main() {
             println!("The removed element is {rm:?}");
         });
     });
+    //We can read the data across thread without Arc.
     scope(|s| {
         s.spawn(|| {
             println!("{:?}", m);
+        });
+        s.spawn(||{
+            println!("{}",m[0]+m[1]);
         });
     });
 }
