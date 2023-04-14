@@ -23,6 +23,10 @@ spawn(move||{
 }).join().unwrap();
 println!("a should be changed in main thread but not \n {:?}\n",a.lock().unwrap());
 println!("b should be changed in main thread but not \n {:?}\n",b.lock().unwrap());
+//This is possible because we can take out the values only if the type is copy.
+//Move type can't allowed this.
+//assert_eq!(*a.lock().unwrap(),[1, 2, 3, 4]);
+//assert_eq!(*b.lock().unwrap(),UdtCopy { n: 10, n1: 10.0, n2: [1, 2, 3, 4, 5], n3: "Not reflected in b" });
 let a_clone= a.clone();
 let b_clone= b.clone();
 spawn(move||{
