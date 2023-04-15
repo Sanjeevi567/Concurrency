@@ -7,7 +7,7 @@ fn main(){
      //Trying to move the data to the caller.
      //For move types this is an error.
      //But for copy types this is problem and then we have a logic bug
-      let task = *clone.lock().unwrap();
+       *clone.lock().unwrap()
         
     //solution.
     //The paranthese are important ,otherwise confusing compile error shows up.
@@ -16,7 +16,6 @@ fn main(){
         
 }).join().unwrap();
 println!("{:?}",m.lock().unwrap());
+//This is independent of the mutex inner type
 println!("{:?}",m1);
 }
-
- 
