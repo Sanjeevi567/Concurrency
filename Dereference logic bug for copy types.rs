@@ -7,7 +7,7 @@ fn main(){
      //Trying to move the data to the caller.
      //For move types this is an error.
      //But for copy types this is problem and then we have a logic bug
-      *clone.lock().unwrap()
+      let task = *clone.lock().unwrap();
         
     //solution.
     //The paranthese are important ,otherwise confusing compile error shows up.
